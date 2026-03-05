@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Movie</title>
+</head>
+<body>
+<h2> Insert Details </h2>
+<form th:action="@{/save}" th:object="${movie}">
+	<input type="hidden" th:field="*{id}">
+
+	<label>Title: </label>
+	<input type="text" th:field="*{title}" /> <br><br>
+
+	<label>Genre: </label>
+	<input type="text" th:field="*{genre}" /> <br><br>
+		
+	<label>Director: </label>
+	<input type="text" th:field="*{director}" /> <br><br>
+
+	<label>Release Year: </label>
+	<input type="text" th:field="*{releaseYear}" /> <br><br>
+
+	<label>Rating: </label>
+	<input type="text" th:field="*{rating}" /> <br><br>
+
+	<button type = "submit"> SUBMIT </button>
+
+</form>
+</body>
+</html>
