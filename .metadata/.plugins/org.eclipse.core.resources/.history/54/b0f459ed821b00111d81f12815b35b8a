@@ -1,0 +1,21 @@
+package com.example.demo.dto;
+
+import java.util.List;
+
+import com.example.demo.model.Appointment;
+import com.example.demo.model.Doctor;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+public class PatientResponseDTO {
+	private Long id;
+	private String name;
+	private Integer age;
+	private Long contactNumber;
+	private String medicalHistory;
+	private Doctor doctor;
+	private List<Appointment> appointments;
+}

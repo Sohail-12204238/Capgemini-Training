@@ -1,0 +1,56 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.dto.PatientRequestDTO;
+import com.example.demo.dto.PatientResponseDTO;
+import com.example.demo.exception.DoctorNotFoundException;
+import com.example.demo.exception.PatientNotFoundException;
+import com.example.demo.mapper.PatientMapper;
+import com.example.demo.model.Doctor;
+import com.example.demo.model.Patient;
+import com.example.demo.repository.DoctorRepository;
+import com.example.demo.repository.PatientRepository;
+
+public class PatientServiceImpl implements PatientService{
+
+	
+	@Autowired
+	private PatientRepository patientRepository;
+	
+	@Autowired
+	private PatientMapper patientMapper;
+
+	@Autowired
+	private DoctorRepository doctorRepository;
+	
+	@Override
+	public List<PatientResponseDTO> getAllPatients(){
+		return patientRepository.findAll().stream().map(patientMapper::toDTO).toList();
+	}
+	
+	@Override
+	public PatientResponseDTO createPatient(PatientRequestDTO dto) {
+		Doctor doctor = doctorRepository.findById(dto.getDoctorId()).orElseThrow(
+				() -> new  DoctorNotFoundException("Doctor Not Found"));
+		Patient fetchedPatient = patientMapper.toEntity(dto,doctor);
+		return patientMapper.toDTO(patientRepository.save(fetchedPatient));
+	}
+	
+	@Override
+	public PatientResponseDTO getPatientById(Long id) {
+		Patient patient =  patientRepository.findById(id).orElseThrow(
+				() -> new PatientNotFoundException("Patient Not Found"));
+		return patientMapper.toDTO(patient);
+	}
+	
+	@Override
+	public PatientResponseDTO updatePatientById(Long id,PatientRequestDTO dto) {
+		Patient fetchedPatient =  patientRepository.findById(id).orElseThrow(
+				() -> new PatientNotFoundException("Patient Not Found"));
+		fetchedPatient.setMedicalHistory(dto.getMedicalHistory());
+		return patientMapper.toDTO(patientRepository.save(fetchedPatient));
+	}
+}

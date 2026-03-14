@@ -1,0 +1,16 @@
+spring.application.name=PRODUCT-SERVICE
+server.port=8082
+
+spring.datasource.url=jdbc:mysql://localhost:3306/product_db_ms?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=1234
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+# Register service with IP address
+eureka.instance.prefer-ip-address=true
+eureka.instance.hostname=127.0.0.1

@@ -1,0 +1,16 @@
+package com.example.demo.repository;
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.Employee;
+
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Long>{
+	Page<Employee> findByDepartment_Name(String name,Pageable pageable);
+	
+	Page<Employee> findBySalaryBetween(double minSalary,double maxSalary,Pageable pageable);
+}

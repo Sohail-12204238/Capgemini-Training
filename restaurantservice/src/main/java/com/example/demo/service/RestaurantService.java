@@ -1,0 +1,38 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.RestaurantMapper;
+import com.example.demo.dto.RestaurantRequestDTO;
+import com.example.demo.dto.RestaurantResponseDTO;
+import com.example.demo.exception.RestaurantNotFoundException;
+import com.example.demo.model.Restaurant;
+import com.example.demo.repository.RestaurantRepository;
+
+@Service 
+public class RestaurantService {
+	
+	@Autowired
+	private RestaurantRepository restaurantRepository;
+	
+	@Autowired
+	private RestaurantMapper restaurantMapper;
+	
+	public RestaurantResponseDTO createRestaurant(RestaurantRequestDTO dto) {
+		Restaurant restaurant = restaurantMapper.toEntity(dto);
+		return restaurantMapper.toDTO(restaurantRepository.save(restaurant));
+	}
+	
+	public List<RestaurantResponseDTO> getAllRestaurants(){
+		return restaurantRepository.findAll().stream().map(restaurantMapper::toDTO).collect(Collectors.toList());
+	}
+	
+	public RestaurantResponseDTO getRestaurantById(Long id) {
+		Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() -> new RestaurantNotFoundException("Restaurant Not Found"));
+		return restaurantMapper.toDTO(restaurant);
+	}
+}

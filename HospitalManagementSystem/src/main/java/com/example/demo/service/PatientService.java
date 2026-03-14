@@ -1,0 +1,14 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+
+import com.example.demo.dto.PatientRequestDTO;
+import com.example.demo.dto.PatientResponseDTO;
+
+public interface PatientService {	
+	List<PatientResponseDTO> getAllPatients();
+	PatientResponseDTO createPatient(PatientRequestDTO dto);
+	PatientResponseDTO getPatientById(Long id);
+	PatientResponseDTO updatePatientById(Long id,PatientRequestDTO dto);
+}
