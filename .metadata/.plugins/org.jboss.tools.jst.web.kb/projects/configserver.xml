@@ -70,11 +70,11 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring-form.tld" project="demo_orderservice"/>
+      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring-form.tld" project="demo_configserver"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring.tld" project="demo_orderservice"/>
+      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring.tld" project="demo_configserver"/>
     </library>
    </libraries>
   </path>

@@ -1,5 +1,0 @@
-spring.application.name=apigateway
-
-server.port=8085
-
-eureka.client.serive-url.default.Zone=https://localhost:8761/eureka

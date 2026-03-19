@@ -70,11 +70,11 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring-form.tld" project="demo_orderservice"/>
+      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring-form.tld" project="demo_configserver"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring.tld" project="demo_orderservice"/>
+      path="FileSystems/lib-spring-webmvc-6.2.16.jar/meta-inf/spring.tld" project="demo_configserver"/>
     </library>
    </libraries>
   </path>
@@ -110,15 +110,24 @@
  <validation>
   <el>
    <linked-el length="23" name="%0" offset="1659" path="%1"/>
-   <linked-el length="23" name="%2" offset="1659" path="%1"/>
-   <linked-el length="23" name="%3" offset="1659" path="%1"/>
+   <linked-el length="23" name="%0" offset="1659" path="%2"/>
+   <linked-el length="23" name="%0" offset="1659" path="%3"/>
+   <linked-el length="23" name="%4" offset="1659" path="%1"/>
+   <linked-el length="23" name="%4" offset="1659" path="%2"/>
+   <linked-el length="23" name="%4" offset="1659" path="%3"/>
+   <linked-el length="23" name="%5" offset="1659" path="%1"/>
+   <linked-el length="23" name="%5" offset="1659" path="%2"/>
+   <linked-el length="23" name="%5" offset="1659" path="%3"/>
   </el>
  </validation>
  <aliases>
   <alias path="spring" value="%0"/>
-  <alias path="cloud" value="%2"/>
-  <alias path="cloud.version" value="%3"/>
-  <alias path="/demo_configserver/pom.xml" value="%1"/>
+  <alias path="cloud" value="%4"/>
+  <alias path="cloud.version" value="%5"/>
+  <alias path="/demo_configserver/demo_configserver/pom.xml" value="%1"/>
+  <alias path="/demo_configserver/pom.xml" value="%3"/>
+  <alias
+   path="/demo_configserver/demo_configserver/target/classes/META-INF/maven/com.configserver.demo/demo_configserver/pom.xml" value="%2"/>
  </aliases>
  <includes/>
  <uris/>
